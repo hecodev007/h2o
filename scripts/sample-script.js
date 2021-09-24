@@ -51,7 +51,7 @@ async function main() {
     const interestModel = await InterestModel.deploy();
     await interestModel.deployed();
     console.log("interestModel deployed to:", interestModel.address);
-    await conf.setParams("1200000000000", "1200000000000", interestModel.address);
+    await conf.setParams("1200000000", "1200000000", interestModel.address);
     const Bank = await hre.ethers.getContractFactory("Bank");
     const inst = await upgrades.deployProxy(Bank, [conf.address]);
     await inst.deployed();
@@ -69,7 +69,7 @@ async function main() {
     let _rabbit = us.address;
 
     const FairLaunch = await hre.ethers.getContractFactory("FairLaunch");
-    const launch = await FairLaunch.deploy(_rabbit, _devaddr, "135000000000000000", _startBlock, _bonusEndBlock);
+    const launch = await FairLaunch.deploy(_rabbit, _devaddr, "13500000000", _startBlock, _bonusEndBlock);
     await launch.deployed();
     console.log("FairLaunch deployed to:", launch.address);
     _stakeToken = await inst.iTokens(us.address);
