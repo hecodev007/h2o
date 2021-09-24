@@ -3,8 +3,6 @@ require("@nomiclabs/hardhat-web3");
 require("@nomiclabs/hardhat-etherscan");
 require("@nomiclabs/hardhat-truffle5");
 require ("@openzeppelin/hardhat-upgrades");
-//require ("hardhat-typechain");
-require ("hardhat-deploy");
 
 //npm install --save-dev hardhat-typechain
 // This is a sample Hardhat task. To learn how to create your own go to
