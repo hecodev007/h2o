@@ -41,12 +41,12 @@ async function main() {
     const _bonusEndBlock = 0;
     const _devaddr = "0x2287374e8d7090214628adad44Ff1ab56b9284D1";
 
-    const Config = await ethers.getContractFactory("./contracts\\bank_config\\Conf.sol:BankConfig");
+    const Config = await ethers.getContractFactory("contracts/bank_config/Conf.sol:BankConfig");
     const conf = await Config.deploy();
     await conf.deployed();
     console.log("conf deployed to:", conf.address);
 
-    const InterestModel = await ethers.getContractFactory("./contracts\\bank_config\\InterestModelv2.sol:TripleSlopeModel");
+    const InterestModel = await ethers.getContractFactory("contracts/bank_config/InterestModelv2.sol:TripleSlopeModel");
     const interestModel = await InterestModel.deploy();
     await interestModel.deployed();
     console.log("interestModel deployed to:", interestModel.address);
