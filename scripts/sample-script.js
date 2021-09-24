@@ -34,9 +34,9 @@ async function main() {
 // npx hardhat run  scripts/sample-script.js
     //0xfbe2B8904cFbb7542A27fA8AC0DBAe7E8fF0a8E6 0x45258eDE35110D87BA4f19751F904625921e3Fa0
    // const ONE_MILLION_DEC18 = new BigNumber("12e18");
-    const _reserveBPS = new BigNumber(12e18);//"12000000000000000000";
-    const _liquidateBPS = new BigNumber(12e18);//"12000000000000000000";
-    const _rabbitPerBlock =new BigNumber(13500000000000000000);
+    const _reserveBPS = "12000000000000000000";
+    const _liquidateBPS = "12000000000000000000";
+    const _rabbitPerBlock = "13500000000000000000";
     const _startBlock = "12521009";
     const _bonusEndBlock = 0;
     const _devaddr = "0x2287374e8d7090214628adad44Ff1ab56b9284D1";
