@@ -3,11 +3,9 @@
 //
 // When running the script with `hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
-const {upgrades}  = require("hardhat");
 const hre = require("hardhat");
-//const BigNumber = require('bignumber.js');
-//const BigNumber = require('bignumber.js');
-import BigNumber from 'bignumber.js'
+const {upgrades}  = require("hardhat");
+const BigNumber = require("bignumber.js");
 //import { ethers, upgrades } from 'hardhat';
 
 async function main() {
