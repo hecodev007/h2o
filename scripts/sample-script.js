@@ -51,7 +51,7 @@ async function main() {
     const interestModel = await InterestModel.deploy();
     await interestModel.deployed();
     console.log("interestModel deployed to:", interestModel.address);
-    await conf.setParams("1200000000", "1200000000", interestModel.address);
+    await conf.setParams(new BigNumber("12e18"), new BigNumber("12e18"), interestModel.address);
     const Bank = await hre.ethers.getContractFactory("Bank");
     const inst = await upgrades.deployProxy(Bank, [conf.address]);
     await inst.deployed();
