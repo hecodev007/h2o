@@ -6,7 +6,8 @@
 const {upgrades}  = require("hardhat");
 const hre = require("hardhat");
 //const BigNumber = require('bignumber.js');
-const BigNumber = require('bignumber.js');
+//const BigNumber = require('bignumber.js');
+import BigNumber from 'bignumber.js'
 //import { ethers, upgrades } from 'hardhat';
 
 async function main() {
