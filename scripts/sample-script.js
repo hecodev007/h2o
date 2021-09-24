@@ -41,7 +41,7 @@ async function main() {
     const _bonusEndBlock = 0;
     const _devaddr = "0x2287374e8d7090214628adad44Ff1ab56b9284D1";
 
-    const Config = await hre.ethers.getContractFactory("contracts\\bank_config\\Conf.sol:BankConfig");
+    const Config = await ethers.getContractFactory("contracts\\bank_config\\Conf.sol:BankConfig");
     const conf = await Config.deploy();
     await conf.deployed();
     console.log("conf deployed to:", conf.address);
