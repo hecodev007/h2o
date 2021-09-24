@@ -32,8 +32,7 @@ async function main() {
     //npx hardhat run --network rinkeby scripts/sample-script.js
 // npx hardhat run  scripts/sample-script.js
     //0xfbe2B8904cFbb7542A27fA8AC0DBAe7E8fF0a8E6 0x45258eDE35110D87BA4f19751F904625921e3Fa0
-    const ONE_MILLION_DEC18 = new BigNumber("12e18");
-    console.log(ONE_MILLION_DEC18);
+
     // const _reserveBPS = "1200000000000";
     // const _liquidateBPS = "1200000000000";
     const _rabbitPerBlock = "1350000000000";
@@ -50,7 +49,7 @@ async function main() {
     const interestModel = await InterestModel.deploy();
     await interestModel.deployed();
     console.log("interestModel deployed to:", interestModel.address);
-    await conf.setParams(new BigNumber(12e18), new BigNumber(12e18), interestModel.address);
+    await conf.setParams("12","12", interestModel.address);
     const Bank = await hre.ethers.getContractFactory("Bank");
     const inst = await upgrades.deployProxy(Bank, [conf.address]);
     await inst.deployed();
