@@ -42,22 +42,22 @@ async function main() {
     const _bonusEndBlock = 0;
     const _devaddr = "0x2287374e8d7090214628adad44Ff1ab56b9284D1";
 
-    const Config = await ethers.getContractFactory("contracts/bank_config/Conf.sol:BankConfig");
+    const Config = await hre.ethers.getContractFactory("contracts/bank_config/Conf.sol:BankConfig");
     const conf = await Config.deploy();
     await conf.deployed();
     console.log("conf deployed to:", conf.address);
 
-    const InterestModel = await ethers.getContractFactory("contracts/bank_config/InterestModelv2.sol:TripleSlopeModel");
+    const InterestModel = await hre.ethers.getContractFactory("contracts/bank_config/InterestModelv2.sol:TripleSlopeModel");
     const interestModel = await InterestModel.deploy();
     await interestModel.deployed();
     console.log("interestModel deployed to:", interestModel.address);
     await conf.setParams(_reserveBPS, _liquidateBPS, interestModel.address);
-    const Bank = await ethers.getContractFactory("Bank");
+    const Bank = await hre.ethers.getContractFactory("Bank");
     const inst = await upgrades.deployProxy(Bank, [conf.address]);
     await inst.deployed();
     console.log("bank_proxy deployed to:", inst.address);
 
-    const UST = await ethers.getContractFactory("UsToken");
+    const UST = await hre.ethers.getContractFactory("UsToken");
     const us = await UST.deploy("H2O", "H2O");
     await us.deployed();
     console.log("H2O deployed to:", us.address);
@@ -68,7 +68,7 @@ async function main() {
 
     let _rabbit = us.address;
 
-    const FairLaunch = await ethers.getContractFactory("FairLaunch");
+    const FairLaunch = await hre.ethers.getContractFactory("FairLaunch");
     const launch = await FairLaunch.deploy(_rabbit, _devaddr, _rabbitPerBlock, _startBlock, _bonusEndBlock);
     await launch.deployed();
     console.log("FairLaunch deployed to:", launch.address);
